@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>Home</title>
+</head>
+<body>
+    {% block content %}
+        {% include 'includes/header.html' %}
+            <div class="container company_nav"><br/><br/>
+                <h1 class="company">Vehicle Corp.</h1>
+                <a href="{% url 'car_model' %}">Model</a>
+                <a href="{% url 'logo' %}">Vehicle Logo</a>
+                <a href="{% url 'vehicle' %}">Vehicle</a>
+                <a href="{% url 'classification' %}">Classification</a>
+                <a href="{% url 'autoorsemi' %}">Transmission Type</a>
+            </div>
+        {% include 'includes/footer.html' %}
+    {% endblock %}
+</body>
+</html>
