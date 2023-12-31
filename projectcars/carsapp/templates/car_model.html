@@ -22,15 +22,15 @@
                     <th>Classification</th>
                     <th>Transmission Type</th>
                 </tr>
-                {% for indiv in Car_models %}
+                {% for car in car_model %}
                 <tr>
-                    <td>{{ indiv.make }}</td>
-                    <td>{{ indiv.model }}</td>
-                    <td>{{ indiv.year }}</td>
-                    <td>{{ indiv.logo }}</td>
-                    <td>{{ indiv.classification }}</td>
+                    <td>{{ car.make }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.logo }}</td>
+                    <td>{{ car.classification }}</td>
                     <td>
-                        {% for transmission in indiv.autoorsemi.all %}
+                        {% for transmission in car.autoorsemi.all %}
                             {{ transmission.name }}
                             {% if not forloop.last %}, {% endif %}
                         {% endfor %}
@@ -44,14 +44,14 @@
         <br><br>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-            {% if Car_models.has_previous %}
+            {% if car_model.has_previous %}
             <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ Car_models.previous_page_number }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ car_model.previous_page_number }}">Previous</a></li>
             {% endif %}
-            <li class="page-item disabled"><a class="page-link">Page {{ Car_models.number }} of {{ Car_models.paginator.num_pages }}</a></li>
-            {% if Car_models.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ Car_models.next_page_number }}">Next</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ Car_models.paginator.num_pages }}">Last &raquo</a></li>
+            <li class="page-item disabled"><a class="page-link">Page {{ car_model.number }} of {{ car_model.paginator.num_pages }}</a></li>
+            {% if car_model.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ car_model.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ car_model.paginator.num_pages }}">Last &raquo</a></li>
             {% endif %}
             </ul>
         </nav>
