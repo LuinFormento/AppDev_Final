@@ -7,19 +7,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-    <title>Position</title>
+    <title>Vehicle's Classification</title>
 </head>
 <body>
     {% block content %}
     {% include 'includes/header.html' %}
         <div class="container"><br/><br/>
-            {% for indiv in position %}
+            {% for clas in classification %}
             <table>
                 <tr>
-                    <th>{{ indiv }}</th>
+                    <th>{{ clas }}</th>
                 </tr>
                 <tr>
-                    <td>{{ indiv.description }}</td>
+                    <td>{{ clas.description }}</td>
                 </tr>         
             </table>
             {% endfor %}  
@@ -28,14 +28,14 @@
         <br><br>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-            {% if position.has_previous %}
+            {% if classification.has_previous %}
             <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ position.previous_page_number }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ classification.previous_page_number }}">Previous</a></li>
             {% endif %}
-            <li class="page-item disabled"><a class="page-link">Page {{ position.number }} of {{ position.paginator.num_pages }}</a></li>
-            {% if position.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ position.next_page_number }}">Next</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ position.paginator.num_pages }}">Last &raquo</a></li>
+            <li class="page-item disabled"><a class="page-link">Page {{ classification.number }} of {{ classification.paginator.num_pages }}</a></li>
+            {% if classification.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ classification.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ classification.paginator.num_pages }}">Last &raquo</a></li>
             {% endif %}
             </ul>
         </nav>

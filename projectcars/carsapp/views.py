@@ -26,18 +26,18 @@ def Classification_view(request):
     p = Paginator(all_project, 1)
     page = request.GET.get('page')
     classification_list = p.get_page(page)
-    return render(request, 'project.html', {'project': classification_list})
+    return render(request, 'classification.html', {'classification': classification_list})
 
 def car_view(request):
     all_car_model = Car_Model.objects.all()
     p = Paginator(all_car_model, 5)
     page = request.GET.get('page')
     car_list = p.get_page(page)
-    return render(request, 'position.html', {'position': car_list})
+    return render(request, 'car_model.html', {'car_model': car_list})
 
 def autosemi_view(request):
     all_AoS = AutoOrSemi.objects.all()
     p = Paginator(all_AoS, 1)
     page = request.GET.get('page')
     AoS_list = p.get_page(page)
-    return render(request, 'skill.html', {'skill': AoS_list})
+    return render(request, 'autoorsemi.html', {'autoorsemi': AoS_list})
